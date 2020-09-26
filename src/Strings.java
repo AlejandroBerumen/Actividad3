@@ -68,10 +68,43 @@ class StringManipulable{
 public class Strings {
 
 	public static void main(String[] args) {
-		
-		StringManipulable str = new StringManipulable("Hola que hace bro");
-		str.primeraLetraMayuscula();
-
+		Scanner x = new Scanner(System.in);
+		System.out.println("\n\nPROGRAMA DE CADENA MANIPULABLE");
+		System.out.println("\nIngrese la cadena a tratar:");
+		String cad = x.nextLine();
+		StringManipulable str = new StringManipulable(cad);
+		int elec = 0;
+		while(elec!=6) {
+		System.out.println("\nQue desea hacer?\n1.- Invertir la cadena\n2.- Agregar una parte a la cadena\n3.- Eliminar una parte de la cadena\n4.- CaMeL CaSe\n5.- Convertir primer letra de cada palabra en mayuscula\n6.- Salir");
+		elec = x.nextInt();
+		switch(elec) {
+		case 1:
+			str.invertirCadena();
+			break;
+		case 2:
+			System.out.println("\nIngrese la parte a agregar");
+			x.next();
+			String parte = x.nextLine();
+			System.out.println("Ingrese la posicion de inicio");
+			int posicion = x.nextInt();
+			str.agregarParte(parte, posicion);
+			break;
+		case 3:
+			System.out.println("\nIngrese la posicion a eliminar");
+			int posicion2 = x.nextInt();
+			str.eliminarParte(posicion2);
+			break;
+		case 4:
+			str.cambiarCamel();
+			break;
+		case 5:
+			str.primeraLetraMayuscula();
+			break;
+		default:
+			System.out.println("\nLa eleccion no es valida");
+			break;
+		}
+		}
 	}
 
 }
