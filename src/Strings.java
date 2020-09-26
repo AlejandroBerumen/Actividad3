@@ -30,8 +30,25 @@ class StringManipulable{
 			}
 			System.out.println("\nResultado: "+cadena);
 		}
-		
-		
+	}
+	public void agregarParte(String parte, int posicion) {
+		cadena = cadena.substring(0, posicion-1) + parte + cadena.substring(posicion);
+		System.out.println("\nResultado: "+cadena);
+	}
+	public void eliminarParte(int posicion) {
+		cadena = cadena.substring(0, posicion-1) + cadena.substring(posicion+1);
+		System.out.println("\nResultado: "+cadena);
+	}
+	public void cambiarCamel() {
+		String cad = "";
+		for(int i=1; i<=cadena.length(); i++) {
+			if(i%2!=0)
+				cad = cad + cadena.substring(i-1, i).toUpperCase();
+			else
+				cad = cad + cadena.substring(i-1, i).toLowerCase();
+		}
+		cadena = cad;
+		System.out.println("\nResultado: "+cadena);
 	}
 }
 public class Strings {
@@ -39,7 +56,7 @@ public class Strings {
 	public static void main(String[] args) {
 		
 		StringManipulable str = new StringManipulable("Hola que hace bro");
-		str.invertirCadena();
+		str.cambiarCamel();
 
 	}
 
