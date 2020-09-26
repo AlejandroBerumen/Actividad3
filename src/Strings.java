@@ -50,13 +50,27 @@ class StringManipulable{
 		cadena = cad;
 		System.out.println("\nResultado: "+cadena);
 	}
+	public void primeraLetraMayuscula() {
+		int cont=0;
+		for(int i=0; i<cadena.length(); i++) {
+			if(cadena.charAt(i)==' ')
+				cont++;
+		}
+		String[] palabras = new String[cont];
+		palabras = cadena.split(" ");
+		cadena = "";
+		for(int i=0; i<palabras.length; i++) {
+			cadena = cadena + palabras[i].substring(0,1).toUpperCase() + palabras[i].substring(1) + " ";
+		}
+		System.out.println("\nResultado: "+cadena);
+	}
 }
 public class Strings {
 
 	public static void main(String[] args) {
 		
 		StringManipulable str = new StringManipulable("Hola que hace bro");
-		str.cambiarCamel();
+		str.primeraLetraMayuscula();
 
 	}
 
